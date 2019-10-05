@@ -32,7 +32,7 @@ class App extends Component {
 		this.setState(this.initialState);
 	}
 	render() {
-		const Food = [
+		const food = [
 			{
 				name: 'apple',
 				amount: 12
@@ -46,11 +46,12 @@ class App extends Component {
 				amount: 2
 			},
 		];
+
 		return (
 			<div className="App">
 				<h1>Clicky Game</h1>
 
-				<h3>can you get to the goal score</h3>
+				<h3>can you get to the goal score of {this.initialState.goal}</h3>
 				{this.state.gameOver && (
 					<Fragment>
 						<h1>YOU {this.state.winner ? 'WIN' : 'LOSE'}!!!</h1>
@@ -63,9 +64,9 @@ class App extends Component {
 				<div className="selections">
 					<div className="unselected candy sel">
 						<h2>Select Your Candy</h2>
-						{Food.map(Food => (
+						{food.map(food => (
 							!this.state[Food.name] && (
-								<Food key={Food.name} src={`/${Food.name}.jpg`} alt={Food.name} onClick={this.handleClick} amount={Food.amount} />
+								<Food key={food.name} src={`/${food.name}.jpg`} alt={food.name} onClick={this.handleClick} amount={food.amount} />
 							)
 						))}
 					</div>
