@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import './css/app.css'
 import Food from './components/images';
 import pics from './components/pics';
 
@@ -35,10 +36,10 @@ class App extends Component {
 
 		return (
 			<div className="App">
-				<h1>Clicky Game</h1>
+				<h1 className="text">Clicky Game</h1>
 
-				<h3>can you get to the goal score of {this.initialState.goal}</h3>
-				<h3>youre score is {this.initialState.totalPoints}</h3>
+				<h3 className="text2">can you get to the goal score of: {this.initialState.goal}</h3>
+				<h3 className="text2">youre score is: {this.initialState.totalPoints}</h3>
 				{this.state.gameOver && (
 					<Fragment>
 						<h1>YOU {this.state.winner ? 'WIN' : 'LOSE'}!!!</h1>
