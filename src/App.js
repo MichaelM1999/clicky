@@ -14,9 +14,9 @@ class App extends Component {
 		...this.initialState
   }
   handleClick = (nameOfFood, points) => {
-		const addpoints = this.state.totalCandy + amount;
+		const addpoints = this.state.totalCandy + Food.amount;
 		this.setState({
-			totalPoints: this.state[nameOfFood].addpoints
+			totalPoints: addpoints
 		});
 	}
 	compareTotals = () => {
