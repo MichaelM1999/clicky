@@ -14,11 +14,14 @@ class App extends Component {
 	state = {
 		...this.initialState
   }
-  handleClick = (nameOfFood, points) => {
-		const addpoints = this.state.totalCandy + Food.amount;
+  handleClick = event => {
+
+		const amount = parseInt(event.target.getAttribute('data-amount'));
+		const addpoints = this.state.totalPoints + amount;
 		this.setState({
 			totalPoints: addpoints
 		});
+		this.compareTotals();
 	}
 	compareTotals = () => {
 		if(this.state.goal && this.state.totalPoints) {
@@ -38,8 +41,8 @@ class App extends Component {
 			<div className="App">
 				<h1 className="text">Clicky Game</h1>
 
-				<h3 className="text2">can you get to the goal score of: {this.initialState.goal}</h3>
-				<h3 className="text2">youre score is: {this.initialState.totalPoints}</h3>
+				<h3 className="text2">can you get to the goal score of: {this.state.goal}</h3>
+				<h3 className="text2">youre score is: {this.state.totalPoints}</h3>
 				{this.state.gameOver && (
 					<Fragment>
 						<h1>YOU {this.state.winner ? 'WIN' : 'LOSE'}!!!</h1>

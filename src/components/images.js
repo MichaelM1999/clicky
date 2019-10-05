@@ -1,16 +1,13 @@
 import React, { Component} from 'react';
 import PropTypes from 'prop-types';
 
-class Food extends Component {
-    render() {
-        const { onClick, src, alt, amount } = this.props;
+const Food = props => {
 
         return (
-            <div className="pointer" onClick={() => onClick(alt, amount)}>
-                <img src={src} alt={alt} />
+            <div className="pointer" onClick={props.onClick}>
+                <img data-amount={props.amount} src={props.src} alt={props.alt} />
             </div>
         );
-    }
 }
 
 Food.propTypes = {
