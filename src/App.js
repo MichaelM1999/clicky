@@ -1,13 +1,13 @@
 import React, { Component, Fragment } from 'react';
 import Food from './components/images';
-
+import pics from './components/pics';
 
 class App extends Component {
 	initialState = {
 		totalPoints: 0,
 		gameOver: false,
 		winner: false,
-		goal: 100
+		goal: 100,
 	};
 
 	state = {
@@ -57,18 +57,16 @@ class App extends Component {
 						<h1>YOU {this.state.winner ? 'WIN' : 'LOSE'}!!!</h1>
 					</Fragment>
 				)}
-
 				{!this.state.gameOver && !!this.state.totalPoints && !!this.state.goal && <button onClick={this.compareTotals}>LOCK IT IN!!!</button>}
 				{this.state.gameOver && <button onClick={this.resetGame}>Play Again?</button>}
 
 				<div className="selections">
 					<div className="unselected candy sel">
 						<h2>Select Your Candy</h2>
-						{food.map(food => (
-							!this.state[Food.name] && (
-								<Food key={food.name} src={`/${food.name}.jpg`} alt={food.name} onClick={this.handleClick} amount={food.amount} />
+						{pics.map(({src}) => (
+								<Food key={food.name} src={src} alt={food.name} onClick={this.handleClick} amount={food.amount} />
 							)
-						))}
+						)}
 					</div>
 				</div>
 			</div>
